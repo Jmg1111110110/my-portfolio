@@ -11,8 +11,8 @@
 ## 저장소 구성
 
 - `intro.md` : 자기소개 파일
-- `contents/content1.md` : 자율 컨텐츠 1 - 오픈소스소프트웨어기초 학습 정리
-- `contents/content2.md` : 자율 컨텐츠 2 - 기획중인 웹 프로젝트 계획
+- `contents/content1.md` : 자율 컨텐츠 1 - 참여 팀프로젝트 소개 (BOSS)
+- `contents/content2.md` : 자율 컨텐츠 2 - Tagnation 프로젝트 기획
 - `index.html` : 메인 포트폴리오 페이지
 - `style.css` : 포트폴리오 디자인
 - `script.js` : 카드 클릭 기능 구현
