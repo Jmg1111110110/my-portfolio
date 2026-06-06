@@ -5,68 +5,196 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  background-color: #f5f7fb;
-  color: #222;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background:
+    radial-gradient(circle at top, #1b2a4a 0%, #0b1020 45%, #05070f 100%);
+  color: #e8f1ff;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+header {
+  text-align: center;
+  padding: 60px 20px 30px;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(79, 172, 254, 0.6);
+  margin-bottom: 12px;
+}
+
+header p {
+  color: #b8c7e6;
+  font-size: 1.05rem;
 }
 
 .container {
   width: 90%;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.hero {
-  background: #2d6cdf;
-  color: white;
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.hero h1 {
-  margin-bottom: 15px;
-  font-size: 2.2rem;
-}
-
-main {
-  padding: 30px 0;
+  max-width: 1100px;
+  margin: 30px auto 60px;
+  display: grid;
+  gap: 24px;
 }
 
 .card {
-  background: white;
-  padding: 25px;
-  margin-bottom: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  background: linear-gradient(180deg, rgba(20, 28, 48, 0.95), rgba(10, 15, 30, 0.95));
+  border: 1px solid rgba(99, 179, 255, 0.25);
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.03) inset,
+    0 10px 30px rgba(0, 0, 0, 0.35),
+    0 0 18px rgba(45, 108, 223, 0.18);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(99, 179, 255, 0.5);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.05) inset,
+    0 16px 35px rgba(0, 0, 0, 0.45),
+    0 0 22px rgba(79, 172, 254, 0.25);
 }
 
 .card h2 {
-  margin-bottom: 15px;
-  color: #2d6cdf;
+  color: #7dc8ff;
+  margin-bottom: 14px;
+  font-size: 1.4rem;
+  text-shadow: 0 0 6px rgba(125, 200, 255, 0.25);
+}
+
+.card p {
+  color: #d7e4ff;
+  margin-bottom: 14px;
 }
 
 .card ul {
   padding-left: 20px;
 }
 
-.card a {
-  display: inline-block;
-  margin-top: 10px;
-  text-decoration: none;
-  color: white;
-  background: #2d6cdf;
-  padding: 10px 16px;
-  border-radius: 8px;
+.card li {
+  margin-bottom: 8px;
+  color: #d7e4ff;
 }
 
-.card a:hover {
-  background: #1f4fa8;
+.file-list {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(125, 200, 255, 0.15);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+/* 게임 UI 버튼 */
+.button-link {
+  display: inline-block;
+  position: relative;
+  margin-top: 12px;
+  padding: 14px 22px;
+  min-width: 180px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #eaf6ff;
+  background: linear-gradient(180deg, #3d8bff 0%, #1f5fd6 55%, #163f93 100%);
+  border: 1px solid #6dc8ff;
+  border-radius: 12px;
+  box-shadow:
+    0 4px 0 #102c63,
+    0 0 12px rgba(61, 139, 255, 0.35),
+    inset 0 1px 0 rgba(255,255,255,0.25);
+  transition:
+    transform 0.08s ease,
+    box-shadow 0.15s ease,
+    filter 0.2s ease,
+    background 0.2s ease;
+  overflow: hidden;
+}
+
+.button-link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255,255,255,0.15) 40%,
+    rgba(255,255,255,0.45) 50%,
+    transparent 60%
+  );
+  transform: skewX(-20deg);
+  transition: left 0.5s ease;
+}
+
+.button-link:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+  box-shadow:
+    0 6px 0 #102c63,
+    0 0 18px rgba(79, 172, 254, 0.55),
+    inset 0 1px 0 rgba(255,255,255,0.3);
+}
+
+.button-link:hover::before {
+  left: 140%;
+}
+
+.button-link:active {
+  transform: translateY(4px);
+  box-shadow:
+    0 1px 0 #102c63,
+    0 0 8px rgba(79, 172, 254, 0.28),
+    inset 0 2px 6px rgba(0,0,0,0.25);
+}
+
+.button-link:focus {
+  outline: 2px solid #9ddcff;
+  outline-offset: 3px;
+}
+
+.intro-highlight {
+  color: #7dc8ff;
+  font-weight: 700;
 }
 
 footer {
   text-align: center;
-  padding: 20px;
-  background: #e9edf5;
-  color: #555;
+  padding: 24px;
+  color: #90a6cf;
+  border-top: 1px solid rgba(125, 200, 255, 0.12);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* 작은 보조 라벨 느낌 */
+.section-tag {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #9fd7ff;
+  background: rgba(55, 120, 255, 0.15);
+  border: 1px solid rgba(125, 200, 255, 0.25);
+}
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  .card {
+    padding: 22px;
+  }
+
+  .button-link {
+    width: 100%;
+    min-width: auto;
+  }
 }
