@@ -5,148 +5,292 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>자율 컨텐츠 1 - BOSS 프로젝트 소개</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background:
+        radial-gradient(circle at top, #1b2a4a 0%, #0b1020 45%, #05070f 100%);
+      color: #e8f1ff;
       line-height: 1.8;
-      max-width: 920px;
-      margin: 40px auto;
-      padding: 20px;
-      background-color: #f5f7fb;
-      color: #222;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    .wrapper {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .page-header {
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .page-tag {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #9fd7ff;
+      background: rgba(55, 120, 255, 0.15);
+      border: 1px solid rgba(125, 200, 255, 0.25);
+    }
+
+    .page-header h1 {
+      font-size: 2.1rem;
+      color: #ffffff;
+      text-shadow: 0 0 8px rgba(79, 172, 254, 0.45);
+      margin-bottom: 10px;
+    }
+
+    .page-header p {
+      color: #b8c7e6;
     }
 
     .card {
-      background: white;
-      padding: 36px;
-      border-radius: 14px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-    }
-
-    h1, h2 {
-      color: #2d6cdf;
-    }
-
-    h1 {
-      margin-bottom: 30px;
+      background: linear-gradient(180deg, rgba(20, 28, 48, 0.96), rgba(10, 15, 30, 0.96));
+      border: 1px solid rgba(99, 179, 255, 0.25);
+      border-radius: 18px;
+      padding: 32px;
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.03) inset,
+        0 10px 30px rgba(0, 0, 0, 0.35),
+        0 0 18px rgba(45, 108, 223, 0.18);
     }
 
     h2 {
+      color: #7dc8ff;
       margin-top: 28px;
       margin-bottom: 12px;
+      font-size: 1.3rem;
+      text-shadow: 0 0 6px rgba(125, 200, 255, 0.2);
+    }
+
+    h2:first-of-type {
+      margin-top: 0;
     }
 
     p {
+      color: #d7e4ff;
       margin-bottom: 14px;
     }
 
     ul {
-      padding-left: 24px;
+      padding-left: 22px;
       margin-bottom: 14px;
     }
 
     li {
-      margin-bottom: 6px;
+      color: #d7e4ff;
+      margin-bottom: 8px;
     }
 
-    .back-link {
+    strong {
+      color: #ffffff;
+    }
+
+    .action-area {
+      margin-top: 32px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .game-button {
       display: inline-block;
-      margin-top: 28px;
+      position: relative;
+      padding: 14px 22px;
+      min-width: 180px;
+      text-align: center;
       text-decoration: none;
-      color: white;
-      background: #2d6cdf;
-      padding: 10px 16px;
-      border-radius: 8px;
-      font-weight: bold;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #eaf6ff;
+      background: linear-gradient(180deg, #3d8bff 0%, #1f5fd6 55%, #163f93 100%);
+      border: 1px solid #6dc8ff;
+      border-radius: 12px;
+      box-shadow:
+        0 4px 0 #102c63,
+        0 0 12px rgba(61, 139, 255, 0.35),
+        inset 0 1px 0 rgba(255,255,255,0.25);
+      transition:
+        transform 0.08s ease,
+        box-shadow 0.15s ease,
+        filter 0.2s ease;
+      overflow: hidden;
     }
 
-    .back-link:hover {
-      background: #1f4fa8;
+    .game-button::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(
+        120deg,
+        transparent 0%,
+        rgba(255,255,255,0.15) 40%,
+        rgba(255,255,255,0.45) 50%,
+        transparent 60%
+      );
+      transform: skewX(-20deg);
+      transition: left 0.5s ease;
+    }
+
+    .game-button:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.08);
+      box-shadow:
+        0 6px 0 #102c63,
+        0 0 18px rgba(79, 172, 254, 0.55),
+        inset 0 1px 0 rgba(255,255,255,0.3);
+    }
+
+    .game-button:hover::before {
+      left: 140%;
+    }
+
+    .game-button:active {
+      transform: translateY(4px);
+      box-shadow:
+        0 1px 0 #102c63,
+        0 0 8px rgba(79, 172, 254, 0.28),
+        inset 0 2px 6px rgba(0,0,0,0.25);
+    }
+
+    .outline-button {
+      background: transparent;
+      border: 1px solid rgba(125, 200, 255, 0.35);
+      color: #9fd7ff;
+      box-shadow:
+        0 4px 0 rgba(16, 44, 99, 0.6),
+        0 0 12px rgba(61, 139, 255, 0.15);
+    }
+
+    .outline-button:hover {
+      background: rgba(61, 139, 255, 0.08);
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 24px 14px;
+      }
+
+      .page-header h1 {
+        font-size: 1.7rem;
+      }
+
+      .card {
+        padding: 24px;
+      }
+
+      .game-button {
+        width: 100%;
+        min-width: auto;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>자율 컨텐츠 1 - BOSS(Basic Open Source Software) 프로젝트 소개</h1>
+  <div class="wrapper">
+    <div class="page-header">
+      <span class="page-tag">CONTENT 01</span>
+      <h1>자율 컨텐츠 1 - BOSS 프로젝트 소개</h1>
+      <p>BOSS 프로젝트의 개요, 역할, 구현 내용과 배운 점을 정리한 페이지입니다.</p>
+    </div>
 
-    <h2>1. 프로젝트 개요</h2>
-    <p>
-      BOSS(Basic Open Source Software)는 백준(BOJ)이나 Programmers와 같은 온라인 채점 시스템을 직접 구현해보는 팀 프로젝트입니다.
-      사용자가 문제를 선택한 뒤 소스코드를 제출하면, 서버에서 코드를 채점하고 실행한 후 테스트케이스와 비교하여 채점 결과를 반환하는 방식으로 구성되었습니다.
-    </p>
-    <p>
-      이 프로젝트는 Java와 Git/GitHub를 활용한 팀 프로젝트 과제로 진행되었으며, 협업 과정과 역할 분담을 경험해볼 수 있는 좋은 기회였습니다.
-    </p>
+    <div class="card">
+      <h2>1. 프로젝트 개요</h2>
+      <p>
+        BOSS(Basic Open Source Software)는 백준(BOJ)이나 Programmers와 같은 온라인 채점 시스템을 직접 구현해보는 팀 프로젝트입니다.
+        사용자가 문제를 선택한 뒤 소스코드를 제출하면, 서버에서 코드를 채점하고 실행한 후 테스트케이스와 비교하여 채점 결과를 반환하는 방식으로 구성되었습니다.
+      </p>
+      <p>
+        이 프로젝트는 Java와 Git/GitHub를 활용한 팀 프로젝트 과제로 진행되었으며, 협업 과정과 역할 분담을 경험해볼 수 있는 좋은 기회였습니다.
+      </p>
 
-    <h2>2. 프로젝트 목적</h2>
-    <p>
-      이 프로젝트의 목적은 Java를 활용하여 기본적인 온라인 채점 시스템의 구조를 이해하고,
-      Git과 GitHub를 이용한 협업 방식에 익숙해지는 것이었습니다.
-    </p>
-    <p>
-      또한 단순히 기능을 구현하는 것을 넘어, 팀원들과 함께 역할을 나누고 프로젝트를 완성하는 과정을 직접 경험하는 데 의미가 있었습니다.
-    </p>
+      <h2>2. 프로젝트 목적</h2>
+      <p>
+        이 프로젝트의 목적은 Java를 활용하여 기본적인 온라인 채점 시스템의 구조를 이해하고,
+        Git과 GitHub를 이용한 협업 방식에 익숙해지는 것이었습니다.
+      </p>
+      <p>
+        또한 단순히 기능을 구현하는 것을 넘어, 팀원들과 함께 역할을 나누고 프로젝트를 완성하는 과정을 직접 경험하는 데 의미가 있었습니다.
+      </p>
 
-    <h2>3. 사용 기술</h2>
-    <ul>
-      <li>HTML</li>
-      <li>Java</li>
-      <li>Git</li>
-      <li>GitHub</li>
-    </ul>
+      <h2>3. 사용 기술</h2>
+      <ul>
+        <li>HTML</li>
+        <li>Java</li>
+        <li>Git</li>
+        <li>GitHub</li>
+      </ul>
 
-    <h2>4. 프로젝트 형태</h2>
-    <ul>
-      <li>팀 프로젝트</li>
-    </ul>
+      <h2>4. 프로젝트 형태</h2>
+      <ul>
+        <li>팀 프로젝트</li>
+      </ul>
 
-    <h2>5. 내가 맡은 역할</h2>
-    <p>
-      저는 이 프로젝트에서 <strong>백엔드 개발</strong>을 담당하였습니다.
-      사용자의 문제 선택과 코드 제출이 자연스럽게 이어질 수 있도록 데이터 흐름을 처리하고,
-      제출 이후 채점 결과가 화면에 표시될 수 있도록 관련 기능을 구현하였습니다.
-    </p>
+      <h2>5. 내가 맡은 역할</h2>
+      <p>
+        저는 이 프로젝트에서 <strong>백엔드 개발</strong>을 담당하였습니다.
+        사용자의 문제 선택과 코드 제출이 자연스럽게 이어질 수 있도록 데이터 흐름을 처리하고,
+        제출 이후 채점 결과가 화면에 표시될 수 있도록 관련 기능을 구현하였습니다.
+      </p>
 
-    <h2>6. 구현 내용</h2>
-    <p>제가 프로젝트에서 구현한 주요 내용은 다음과 같습니다.</p>
-    <ul>
-      <li>문제 선택값 저장 및 제출 페이지 연동 기능 구현</li>
-      <li>코드 제출 처리 기능 개발</li>
-      <li>채점 결과 표시 영역 구성</li>
-      <li>사용자 제출 상태 관리</li>
-      <li>페이지 간 데이터 처리 기능 구현</li>
-    </ul>
-    <p>
-      이 과정을 통해 사용자의 입력이 어떻게 저장되고 전달되는지,
-      그리고 하나의 기능이 여러 페이지와 연결되어 동작하기 위해 어떤 처리가 필요한지 배울 수 있었습니다.
-    </p>
+      <h2>6. 구현 내용</h2>
+      <p>제가 프로젝트에서 구현한 주요 내용은 다음과 같습니다.</p>
+      <ul>
+        <li>문제 선택값 저장 및 제출 페이지 연동 기능 구현</li>
+        <li>코드 제출 처리 기능 개발</li>
+        <li>채점 결과 표시 영역 구성</li>
+        <li>사용자 제출 상태 관리</li>
+        <li>페이지 간 데이터 처리 기능 구현</li>
+      </ul>
+      <p>
+        이 과정을 통해 사용자의 입력이 어떻게 저장되고 전달되는지,
+        그리고 하나의 기능이 여러 페이지와 연결되어 동작하기 위해 어떤 처리가 필요한지 배울 수 있었습니다.
+      </p>
 
-    <h2>7. 어려웠던 점</h2>
-    <p>
-      가장 어려웠던 점은 Git과 GitHub를 처음 본격적으로 사용해보는 프로젝트였다는 점입니다.
-      초반에는 작업 내용을 반영하고 공유하는 과정이 익숙하지 않아 적응하는 데 시간이 필요했습니다.
-    </p>
-    <p>
-      특히 협업 환경에서 파일을 관리하고 변경 사항을 정리하는 과정이 처음에는 어렵게 느껴졌지만,
-      프로젝트를 진행하면서 점차 사용 방식에 익숙해질 수 있었습니다.
-    </p>
+      <h2>7. 어려웠던 점</h2>
+      <p>
+        가장 어려웠던 점은 Git과 GitHub를 처음 본격적으로 사용해보는 프로젝트였다는 점입니다.
+        초반에는 작업 내용을 반영하고 공유하는 과정이 익숙하지 않아 적응하는 데 시간이 필요했습니다.
+      </p>
+      <p>
+        특히 협업 환경에서 파일을 관리하고 변경 사항을 정리하는 과정이 처음에는 어렵게 느껴졌지만,
+        프로젝트를 진행하면서 점차 사용 방식에 익숙해질 수 있었습니다.
+      </p>
 
-    <h2>8. 배운 점</h2>
-    <p>
-      이 프로젝트를 통해 Git과 GitHub의 필요성을 직접 체감할 수 있었습니다.
-      처음에는 낯설고 어렵게 느껴졌지만, 점점 익숙해지면서 팀원들과 작업 내용을 공유하고 소통하는 과정이 훨씬 편리하다는 점을 느꼈습니다.
-    </p>
-    <p>
-      또한 백엔드 역할을 맡아 데이터 처리와 제출 흐름을 구현해보면서,
-      단순한 화면 구성이 아니라 기능이 실제로 동작하도록 만드는 과정에 대해 더 깊이 이해할 수 있었습니다.
-    </p>
+      <h2>8. 배운 점</h2>
+      <p>
+        이 프로젝트를 통해 Git과 GitHub의 필요성을 직접 체감할 수 있었습니다.
+        처음에는 낯설고 어렵게 느껴졌지만, 점점 익숙해지면서 팀원들과 작업 내용을 공유하고 소통하는 과정이 훨씬 편리하다는 점을 느꼈습니다.
+      </p>
+      <p>
+        또한 백엔드 역할을 맡아 데이터 처리와 제출 흐름을 구현해보면서,
+        단순한 화면 구성이 아니라 기능이 실제로 동작하도록 만드는 과정에 대해 더 깊이 이해할 수 있었습니다.
+      </p>
 
-    <h2>9. 결과 및 느낀 점</h2>
-    <p>
-      이번 프로젝트는 단순한 과제 수행을 넘어서 협업 도구 사용, 역할 분담, 기능 구현 과정을 모두 경험할 수 있었던 의미 있는 활동이었습니다.
-      앞으로도 GitHub를 적극적으로 활용하고, 백엔드 개발 역량을 더 키워나가고 싶다는 생각을 하게 되었습니다.
-    </p>
+      <h2>9. 결과 및 느낀 점</h2>
+      <p>
+        이번 프로젝트는 단순한 과제 수행을 넘어서 협업 도구 사용, 역할 분담, 기능 구현 과정을 모두 경험할 수 있었던 의미 있는 활동이었습니다.
+        앞으로도 GitHub를 적극적으로 활용하고, 백엔드 개발 역량을 더 키워나가고 싶다는 생각을 하게 되었습니다.
+      </p>
 
-    <a class="back-link" href="../index.html">메인 페이지로 돌아가기</a>
+      <div class="action-area">
+        <a class="game-button" href="../index.html">메인으로 돌아가기</a>
+        <a class="game-button outline-button" href="content2.html">다음 컨텐츠 보기</a>
+      </div>
+    </div>
   </div>
 </body>
 </html>

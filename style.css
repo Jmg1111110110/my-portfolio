@@ -80,6 +80,29 @@ header p {
   color: #d7e4ff;
 }
 
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.card-link:hover {
+  text-decoration: none;
+}
+
+.card-link .card {
+  cursor: pointer;
+}
+
+.card-link:hover .card {
+  transform: translateY(-4px);
+  border-color: rgba(99, 179, 255, 0.5);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.05) inset,
+    0 16px 35px rgba(0, 0, 0, 0.45),
+    0 0 22px rgba(79, 172, 254, 0.25);
+}
+
 .file-list {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(125, 200, 255, 0.15);
