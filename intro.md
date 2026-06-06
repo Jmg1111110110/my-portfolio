@@ -23,8 +23,9 @@
 - Java 과제 수행
 - C언어 과제 수행
 - HTML 기반 호텔 예약 시스템 제작
-- Java 문제 채점 시스템 구현에서 백엔드 개발 담당
 - C언어 팀 프로젝트 발표 경험
+- BOSS(Basic Open Source Software) 프로젝트
+
 
 ## 학습 목표
 
